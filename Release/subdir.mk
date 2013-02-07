@@ -10,16 +10,22 @@ O_SRCS += \
 C_UPPER_SRCS += \
 ../cpoll.C \
 ../rgctest.C \
+../sendfd.C \
+../statemachines.C \
 ../t1.C 
 
 OBJS += \
 ./cpoll.o \
 ./rgctest.o \
+./sendfd.o \
+./statemachines.o \
 ./t1.o 
 
 C_UPPER_DEPS += \
 ./cpoll.d \
 ./rgctest.d \
+./sendfd.d \
+./statemachines.d \
 ./t1.d 
 
 
