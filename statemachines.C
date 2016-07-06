@@ -25,7 +25,7 @@
 #include <tuple>
 #include <string>
 #include <string.h>
-#include "include/statemachines.H"
+#include <cpoll/statemachines.H>
 #include <stdio.h>
 using namespace std;
 namespace CP

@@ -27,7 +27,7 @@
 #include <string.h>
 #include <errno.h>
 #include <stdexcept>
-#include <delegate.H>
+#include "delegate.H"
 #include "basictypes.H"
 #ifndef likely
 #define likely(x)       __builtin_expect((x),1)

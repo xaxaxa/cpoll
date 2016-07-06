@@ -18,12 +18,12 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * */
-#include "include/cpoll.H"
-#include "include/cpoll_internal.H"
+#include <cpoll/cpoll.H>
+#include <cpoll/cpoll_internal.H>
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdexcept>
-#include "include/statemachines.H"
+#include <cpoll/statemachines.H>
 #include <dirent.h>
 #include <sys/socket.h>
 #include <netdb.h>

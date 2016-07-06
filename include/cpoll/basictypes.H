@@ -23,8 +23,8 @@
 #define BASICTYPES_H_
 #include <string>
 #include <stdexcept>
-#include <rgc.H>
-#include <delegate.H>
+#include "rgc.H"
+#include "delegate.H"
 #include <string.h>
 
 #ifndef DEPRECATED
