@@ -1,6 +1,18 @@
 CXX = @CXX@ @CXXFLAGS@ @LDFLAGS@ -Iinclude
+INSTALL_LIBDIR = @prefix@@libdir@
+INSTALL_INCLUDEDIR = @prefix@@includedir@
 
 all: libcpoll.so
 
 libcpoll.so: cpoll.C
 	$(CXX) cpoll.C --shared -o libcpoll.so -lpthread
+
+install: libcpoll.so
+	# headers
+	install -d $(INSTALL_INCLUDEDIR)/cpoll/
+	install -m 644 include/cpoll/* $(INSTALL_INCLUDEDIR)/cpoll/
+	# binaries
+	install -s libcpoll.so $(INSTALL_LIBDIR)/
+
+clean:
+	rm -f *.so
