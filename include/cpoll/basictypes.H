@@ -86,7 +86,7 @@ namespace CP
 		String(const char* data) :
 				d(const_cast<char*>(data)), len(strlen(data)) {
 		}
-		String(std::string s) :
+		String(const std::string& s) :
 				d((char*) s.data()), len(s.length()) {
 		}
 		String(MemoryBuffer& mb) :
