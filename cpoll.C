@@ -2025,6 +2025,12 @@ namespace CP
 //throw 0;
 //printf("EPoll::del()\n");
 		if (h.handle == cur_handle) cur_deleted = true;
+		//if we're in the middle of a _doEPoll() loop, disable all pending events in queue
+		//relating to this handle since it might not even exist anymore after this function
+		//returns
+		if (likely(curEvents!=NULL)) for (int i = curIndex; i < curLength; i++) {
+			if (curEvents[i].data.ptr == (void*) &h) curEvents[i].data.ptr = NULL;
+		}
 		if (h.getEvents() != Events::none) {
 			/*if (h.handle < 0) {
 			 //throw runtime_error("test");
@@ -2037,12 +2043,6 @@ namespace CP
 			 }
 			 }*/
 			//printf("EPoll::del()\n");
-			//if we're in the middle of a _doEPoll() loop, disable all pending events in queue
-			//relating to this handle since it might not even exist anymore after this function
-			//returns
-			if (likely(curEvents!=NULL)) for (int i = curIndex; i < curLength; i++) {
-				if (curEvents[i].data.ptr == (void*) &h) curEvents[i].data.ptr = NULL;
-			}
 			if (h.handle >= 0) {
 				//checkError(epoll_ctl(this->handle, EPOLL_CTL_DEL, h.handle, (epoll_event*) 1));
 				//XXX: see previous comment about EPOLL_CTL_DEL
